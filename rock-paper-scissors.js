@@ -14,7 +14,6 @@ function computerPlay() {
 }
 
 computerPick = computerPlay();
-playerPick = "Rock";
 
 function playRound(playerSelection, computerSelection) {
   computerSelection = computerPick.toLowerCase();
@@ -68,4 +67,31 @@ function playRound(playerSelection, computerSelection) {
   return result;
 }
 
-console.log(computerPick, playRound());
+p = 0;
+c = 0;
+answer = playRound();
+
+do {
+  computerPlay();
+  computerPick = computerPlay();
+  sign = window.prompt("Pick Rock, Paper, or Scissors", "Rock/Paper/Scissors");
+  playerPick = sign;
+  playRound();
+  answer = playRound();
+  if (answer == "computer") {
+    c++;
+  } else if (answer == "player") {
+    p++;
+  } else if (answer == "tie") {
+    p + 0;
+    c + 0;
+  }
+
+  console.log(p, c, answer, computerPick, playRound());
+} while (p < 5 && c < 5);
+
+if (p > c) {
+  console.log("Player Wins!");
+} else {
+  console.log("Dumbass");
+}
